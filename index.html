@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#160d24">
+<title>Nandani Pandey | Cricket Insights</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  width:100%;min-height:100%;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#08050d;color:#fff
+}
+body{display:flex;justify-content:center;overflow-x:hidden}
+
+.page{
+  width:100%;max-width:520px;min-height:100vh;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 92% 7%,rgba(226,61,161,.25),transparent 27%),
+    radial-gradient(circle at 5% 65%,rgba(121,76,255,.18),transparent 31%),
+    radial-gradient(circle at 78% 90%,rgba(255,126,64,.10),transparent 28%),
+    linear-gradient(145deg,#11091d 0%,#21102f 48%,#08050d 100%);
+}
+.page:before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.3;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:30px 30px
+}
+.wrap{position:relative;z-index:2;padding:15px 13px 18px}
+
+.card{
+  position:relative;overflow:hidden;
+  border:1px solid rgba(232,107,194,.34);
+  border-radius:30px;padding:17px 14px 15px;
+  background:linear-gradient(155deg,rgba(25,11,38,.92),rgba(9,6,17,.80));
+  backdrop-filter:blur(18px);
+  box-shadow:0 25px 80px rgba(0,0,0,.62),inset 0 1px rgba(255,255,255,.09)
+}
+.card:after{
+  content:"";position:absolute;width:200px;height:200px;top:-110px;right:-90px;
+  background:rgba(224,62,166,.17);filter:blur(32px);border-radius:50%
+}
+
+.top{
+  position:relative;z-index:3;display:flex;align-items:center;
+  justify-content:space-between;margin-bottom:12px
+}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 12px;
+  border-radius:999px;background:rgba(96,30,91,.45);
+  border:1px solid rgba(239,117,204,.36);
+  font-size:10px;font-weight:800;letter-spacing:.7px;color:#ffeafa
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;background:#ff76cf;
+  box-shadow:0 0 9px #ff76cf,0 0 18px rgba(255,118,207,.65);
+  animation:dotPulse 1.8s infinite
+}
+.logo{
+  width:58px;height:58px;border-radius:50%;object-fit:cover;
+  border:2px solid #ff8bd7;background:#fff;
+  box-shadow:0 0 22px rgba(241,83,184,.34)
+}
+
+.hero{
+  position:relative;z-index:3;display:grid;
+  grid-template-columns:1fr 115px;gap:11px;align-items:center
+}
+h1{
+  font-size:39px;line-height:.92;letter-spacing:-1.8px;
+  margin-top:4px;font-weight:950
+}
+h1 span{
+  display:block;
+  background:linear-gradient(90deg,#fff,#ffb2e9,#c47cff);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.sub{
+  margin-top:11px;font-size:12px;line-height:1.5;
+  color:#ddcfe2;max-width:350px
+}
+.logo-hero{
+  width:115px;height:130px;border-radius:22px;
+  border:1px solid rgba(239,113,205,.40);
+  background:linear-gradient(145deg,rgba(164,63,145,.18),rgba(255,255,255,.035));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 15px 35px rgba(0,0,0,.5),inset 0 1px rgba(255,255,255,.08);
+  animation:floatLogo 4s ease-in-out infinite
+}
+.logo-hero img{width:100px;height:100px;object-fit:cover;border-radius:18px}
+
+.pills{
+  position:relative;z-index:3;display:flex;flex-wrap:wrap;
+  gap:6px;margin-top:13px
+}
+.pill{
+  font-size:9px;font-weight:800;padding:8px 10px;border-radius:999px;
+  color:#ffeafa;background:rgba(255,255,255,.045);
+  border:1px solid rgba(240,159,218,.12)
+}
+
+.features{
+  position:relative;z-index:3;display:grid;
+  grid-template-columns:1fr 1fr;gap:7px;margin-top:12px
+}
+.feature{
+  min-height:67px;padding:10px;border-radius:15px;
+  background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.025));
+  border:1px solid rgba(240,159,218,.10)
+}
+.icon{font-size:16px;float:left;margin-right:6px}
+.feature b{font-size:10px;color:#fff4fc}
+.feature p{
+  font-size:8.5px;color:#bbaabe;margin-top:4px;
+  line-height:1.35;clear:both;padding-top:3px
+}
+
+.cta{
+  position:relative;z-index:4;display:block;text-decoration:none;text-align:center;
+  margin-top:13px;padding:16px 12px;border-radius:18px;
+  color:#230d25;
+  background:linear-gradient(100deg,#ffd5f2,#ff8fd5,#c78cff);
+  font-size:14px;font-weight:950;letter-spacing:.2px;
+  box-shadow:0 10px 32px rgba(224,78,180,.32);
+  overflow:hidden;animation:buttonPulse 2.4s ease-in-out infinite
+}
+.cta:before{
+  content:"";position:absolute;top:0;left:-120%;width:80%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);
+  transform:skewX(-20deg);animation:shine 3.2s infinite
+}
+.cta span,.cta small{position:relative;z-index:2}
+.cta small{
+  display:block;font-size:8px;margin-top:4px;opacity:.72;letter-spacing:.4px
+}
+.note{
+  position:relative;z-index:3;text-align:center;color:#8e7b91;
+  font-size:8px;line-height:1.35;margin-top:8px
+}
+.footer{
+  position:relative;z-index:3;text-align:center;color:#6c5b70;
+  font-size:7.5px;margin-top:9px
+}
+
+@keyframes buttonPulse{
+  0%,100%{transform:scale(1);box-shadow:0 10px 32px rgba(224,78,180,.28)}
+  50%{transform:scale(1.018);box-shadow:0 13px 44px rgba(224,78,180,.48),0 0 20px rgba(255,142,218,.14)}
+}
+@keyframes shine{0%{left:-120%}45%,100%{left:140%}}
+@keyframes floatLogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.78)}}
+
+@media(max-width:380px){
+  h1{font-size:35px}
+  .hero{grid-template-columns:1fr 100px}
+  .logo-hero{width:100px;height:115px}
+  .logo-hero img{width:88px;height:88px}
+  .wrap{padding:11px}.card{padding:14px 12px}
+  .feature{min-height:64px}
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+<div class="wrap">
+<section class="card">
+
+<div class="top">
+  <div class="badge"><i class="dot"></i> CRICKET INSIGHTS</div>
+  <img class="logo" src="./logo.jpg" alt="Nandani Pandey" loading="eager">
+</div>
+
+<div class="hero">
+  <div>
+    <h1>NANDANI <span>PANDEY 🏆</span></h1>
+    <p class="sub">
+      Explore cricket updates, match information, team news and
+      general match insights — all in one place.
+    </p>
+  </div>
+
+  <div class="logo-hero">
+    <img src="./logo.jpg" alt="Nandani Pandey Cricket" loading="eager">
+  </div>
+</div>
+
+<div class="pills">
+  <div class="pill">🏏 Match Updates</div>
+  <div class="pill">📋 Team News</div>
+  <div class="pill">📰 Cricket News</div>
+  <div class="pill">📊 Match Insights</div>
+</div>
+
+<div class="features">
+
+  <div class="feature">
+    <span class="icon">🏏</span>
+    <b>MATCH DETAILS</b>
+    <p>Schedules, fixtures and useful information about upcoming games.</p>
+  </div>
+
+  <div class="feature">
+    <span class="icon">📋</span>
+    <b>TEAM NEWS</b>
+    <p>General squad, player and team-related cricket updates.</p>
+  </div>
+
+  <div class="feature">
+    <span class="icon">📰</span>
+    <b>CRICKET UPDATES</b>
+    <p>Follow interesting news and developments from the cricket world.</p>
+  </div>
+
+  <div class="feature">
+    <span class="icon">📊</span>
+    <b>MATCH INSIGHTS</b>
+    <p>Explore general form, key factors and information around matches.</p>
+  </div>
+
+</div>
+
+<a class="cta"
+   href="https://t.me/+RwCv1Xx_Z8tkNTU9"
+   target="_blank"
+   rel="noopener">
+  <span>JOIN NANDANI PANDEY →</span>
+  <small>OPEN TELEGRAM • CRICKET UPDATES & INSIGHTS</small>
+</a>
+
+<div class="note">
+  Content is provided for general informational purposes.
+  Please verify important match details through official sources.
+</div>
+
+<div class="footer">
+  © 2026 NANDANI PANDEY • ALL RIGHTS RESERVED
+</div>
+
+</section>
+</div>
+</main>
+</body>
+</html>
